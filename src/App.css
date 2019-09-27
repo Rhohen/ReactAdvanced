@@ -1,22 +1,149 @@
 .App {
   text-align: center;
-}
+  background-color: #1976D2; 
 
-.App-logo {
-  height: 40vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: left;
+  background-color: #1976D2;
+  padding: 1px 0 1px 10px;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.MainList {
+  background-color: #ffffff; 
+
+}
+
+.filter {
+  text-align: left;
+  background-color: #1976D2; 
+  padding: 10px;
+  font-size: .75em;
+  color: white;
+}
+
+select{
+  width: 100px; 
+  margin-left: 10px;
+  border: 0px solid;
+  color: #424242;
+  height: 20px;
+
+}
+
+.costTable{
+  align: center;
+  table-layout: fixed;
+  width: 95%;
+  margin: 10px;
+}
+
+td{
+  border-bottom:1px solid #E0E0E0;
+}
+
+th{
+  border-bottom:1px solid #E0E0E0;
+}
+
+.costElementTitle{
+  color: #1976D2;
+  padding: 8px;
+  text-align: left;
+
+}
+
+.costElementPaidBy{
+  color: #616161;
+  padding: 10px;
+  text-align: center;
+}
+
+.costElementPrice{
+  color: #1976D2;
+  padding: 8px;
+  text-align: right;
+}
+
+.paidByText{
+  display: inline;
+  font-size: 8px;
+}
+
+.Footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0px;
+}
+
+.AdderCost{
+  width: 30px;
+}
+
+
+.AdderCostElement{
+  background-color: lightgrey; 
+}
+
+.inputAdder{
+  width: 35%;
+  border-radius: 2%;
+}
+
+.inputAdderPrice{
+  width: 40px;
+  border-radius: 10%;
+}
+
+.buttonAdder{
+  background-color: #1976D2;
+  width: 28px;
+  height: 22px;
+  border: 0px solid;
+  color: white;
+  border-radius: 10%;
+  font-weight : bold;
+}
+
+::placeholder {
+  color:  #696972;
+  font-size: 1em;
+}
+
+input{
+  border: 0px solid;
+  margin : 5px;
+  color: #424242;
+  height: 20px;
+}
+
+
+.TotalCost{
+  width: 100%;
+  background-color: #424242;
+  margin: 0px;
+
+}
+
+.totalText{
+  text-align: right;
+  margin:0px;
+  margin-right:1px;
+  padding-top: 5px;
+  margin-bottom: 2px;
+  color : white;
+  font-size: 12px;
+
+}
+.totalValue{
+  text-align: right;
+  margin:0px;
+  margin-top: 2px;
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+
 }
