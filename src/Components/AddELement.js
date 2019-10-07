@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { adderCost, adderUser } from './utils/actions';
 
 class AddELement extends React.Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             adderWhat: "",
@@ -19,9 +21,12 @@ class AddELement extends React.Component {
         if (this.state.adderWhat !== "" &&
             this.state.adderWho !== "" &&
             this.state.adderHow !== -1) {
-            this.props.adder(this.state.adderWhat,
+            this.props.addCost(this.state.adderWhat,
                 this.state.adderWho,
                 this.state.adderHow);
+            if (!this.props.users.includes(this.state.adderWho)) {
+                this.props.addUser(this.state.adderWho);
+            }
         }
     }
 
@@ -43,7 +48,7 @@ class AddELement extends React.Component {
                 <input className="inputAdder" type="text" onChange={e => this.handleChange(e, 1)} list="listUsers" placeholder="Who?" />
                 <datalist id="listUsers">
                     {this.processOptions()}
-                </datalist>                
+                </datalist>
                 <input className="inputAdderPrice" onChange={e => this.handleChange(e, 2)} placeholder="€€€" />
                 <button className="buttonAdder" onClick={this.handleClick}>+</button>
             </div>
@@ -51,4 +56,20 @@ class AddELement extends React.Component {
     }
 }
 
-export default AddELement;
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addCost: (what, who, how) => {
+            dispatch(adderCost(what, who, how))
+        },
+        addUser: (who) => {
+            dispatch(adderUser(who))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddELement);

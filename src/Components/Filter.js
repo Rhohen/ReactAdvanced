@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { updateFilter } from './utils/actions'
 
 class Filter extends React.Component {
     constructor(props) {
         super(props);
-
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -26,4 +27,17 @@ class Filter extends React.Component {
     }
 }
 
-export default Filter;
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        filter: (value) => {
+            dispatch(updateFilter(value))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

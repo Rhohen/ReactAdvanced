@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class TableList extends React.Component {
 
@@ -10,8 +11,8 @@ class TableList extends React.Component {
                 <td className="costElementPaidBy"><p className="paidByText">Paid by</p> {cost.paidBy}</td>
                 <td className="costElementPrice">{cost.price} €</td>
             </tr>
-            
-            )
+
+        )
         );
 
     render() {
@@ -27,4 +28,14 @@ class TableList extends React.Component {
     }
 }
 
-export default TableList;
+const mapStateToProps = (state) => {
+    return {
+        filter: state.filter,
+        costs: state.costs
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TableList);
